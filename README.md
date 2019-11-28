@@ -37,3 +37,15 @@ print(html.read())
 ## Python Crawler Frame
 
 [pyspider](http://docs.pyspider.org/en/latest/Quickstart/), example: https://cuiqingcai.com/2652.html
+
+国内网速经常pip下载超时失败，可转为国内的镜像：
+
+``` bash
+pip install -i https://mirrors.aliyun.com/pypi/simple/ pyspider
+```
+
+* 阿里云 mirrors.aliyun.com/pypi/simple…
+* 中国科技大学 pypi.mirrors.ustc.edu.cn/simple/
+* 豆瓣(douban) pypi.douban.com/simple/
+* 清华大学 pypi.tuna.tsinghua.edu.cn/simple/
+* 中国科学技术大学 pypi.mirrors.ustc.edu.cn/simple/

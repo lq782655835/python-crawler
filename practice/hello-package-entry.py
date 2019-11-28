@@ -1,8 +1,7 @@
-#!/usr/bin/env
 # -*- coding: UTF-8 -*-
 
 # 导入模块
-import hello_package
+import helloworld
 # 导入package
 import package_runoob.b
 from package_runoob.a import runoob1,runoob11
@@ -17,7 +16,7 @@ from package_runoob import b
 # print tf.__version__
 
 # 现在可以调用模块里包含的函数了
-hello_package.print_func("Runoob")
+helloworld.print_func("Runoob")
 package_runoob.b.runoob2()
 runoob1()
 runoob11()
