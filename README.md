@@ -1,4 +1,22 @@
 
+# Python
+
+## Python Basic Data Struct
+
+1. String: '12'
+1. List: [1, 2]
+    * list(obj) 将对象强制转成list，比如 list(range(5))
+    * list.append(obj) 在列表尾追加 obj
+    * list.insert(index,obj) index索引处插入 obj
+    * list.pop(obj=list[-1]) 移除列表中的元素(默认最后一个)
+    * list.remove(obj) 移除obj匹配的第一个对象
+1. Dict: {'a': 1, 'b': 2}
+    * keys()
+    * values()
+    * items()
+1. Tuple: (2, 3) 括号常可以省略
+1. Set: {1, 2}
+
 ## Python Web Frame
 
 Django 是一个重量级的框架,Flask是一个轻量型的框架;
@@ -36,12 +54,15 @@ print(html.read())
 
 ## Python Crawler Frame
 
-[pyspider](http://docs.pyspider.org/en/latest/Quickstart/), example: https://cuiqingcai.com/2652.html
+* [pyspider](http://docs.pyspider.org/en/latest/Quickstart/), example: https://cuiqingcai.com/2652.html
 
 国内网速经常pip下载超时失败，可转为国内的镜像：
 
 ``` bash
-pip install -i https://mirrors.aliyun.com/pypi/simple/ pyspider
+pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/ pyspider
+
+# 如果同时安装了2.x和3.x python，3需要按照如下安装包
+sudo python3 -m pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/ pyspider
 ```
 
 * 阿里云 mirrors.aliyun.com/pypi/simple…
@@ -49,3 +70,6 @@ pip install -i https://mirrors.aliyun.com/pypi/simple/ pyspider
 * 豆瓣(douban) pypi.douban.com/simple/
 * 清华大学 pypi.tuna.tsinghua.edu.cn/simple/
 * 中国科学技术大学 pypi.mirrors.ustc.edu.cn/simple/
+
+> python2路径： /Users/xxx/Library/Python/2.7/lib/python/site-packages/
+> python3路径：/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/bin

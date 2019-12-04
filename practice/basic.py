@@ -81,6 +81,28 @@ def myGlobalEnumerate():
 # myComprehension()
 # myDict()
 
-myGlobalLen()
+# myGlobalLen()
 # myGlobalList()
 # myGlobalEnumerate()
+
+
+class BankAccount:
+    def __init__(self):
+        self.balance = 0
+
+    def withdraw(self, amount):
+        self.balance -= amount
+        return self.balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        return self.balance
+
+# class ChinaBankAccount(BankAccount):
+#     def __init__(self, name):
+#         self
+
+bank = BankAccount()
+bank.deposit(100)
+bank.withdraw(20)
+print(bank.balance) # 80
