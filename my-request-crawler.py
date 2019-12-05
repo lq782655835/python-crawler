@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# python2
+
 import os
 import urllib
 import requests
@@ -8,9 +10,9 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 # 禁用安全请求警告
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-# os.mkdir('meizi')#第一次运行新建meizi文件夹，手动建可以注释掉
+os.mkdir('meizi')#第一次运行新建meizi文件夹，手动建可以注释掉
 
-for page in range(1,2):
+for page in range(1,2): # 多少张页面
     url='http://www.mmonly.cc/mmtp/list_9_%s.html'%page
     print(url)
     response=requests.get(url,verify=False).text
@@ -18,7 +20,7 @@ for page in range(1,2):
     selector=html.fromstring(response)
     imgEle=selector.xpath('//div[@class="ABox"]/a')
     print(len(imgEle))
-    for index,img in enumerate(imgEle):
+    for index,img in enumerate(imgEle): # 一张页面里的入口
         imgUrl=img.xpath('@href')[0]
         response=requests.get(imgUrl,verify=False).text
         selector = html.fromstring(response)
@@ -26,11 +28,12 @@ for page in range(1,2):
         print(pageEle)
         imgE=selector.xpath('//a[@class="down-btn"]/@href')[0]
 
+        # 保存图片集第一张
         imgName = '%s_%s_1.jpg' % (page,str(index+1))
         coverPath = '%s/meizi/%s' % (os.getcwd(), imgName)
         urllib.urlretrieve(imgE, coverPath) # 保存网络图片到本地地址
 
-        for page_2 in range(2,int(pageEle)+1):
+        for page_2 in range(2,int(pageEle)+1): # 图片集
             url=imgUrl.replace('.html', '_%s.html' % str(page_2))
             response = requests.get(url).text
             selector = html.fromstring(response)

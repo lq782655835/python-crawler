@@ -1,17 +1,21 @@
 # -*- coding: UTF-8 -*-
+# python3
 
 from urllib import request
 from lxml import etree
 import re
 import pymysql
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # 数据库连接
 def connect():
     conn = pymysql.connect(host='localhost',
                            port=3306,
                            user='root',
-                           password='123456',
-                           database='blog_data',
+                           password='12345678',
+                           database='python_clawer',
                            charset='utf8mb4')
 
     # 获取操作游标
@@ -28,6 +32,7 @@ sql_insert = "insert into spider_data(id, plantform, read_num, fans_num, rank_nu
 req_csdn = request.Request('https://blog.csdn.net/meteor_93')
 req_csdn.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36')
 html_csdn = request.urlopen(req_csdn).read().decode('utf-8')
+
 read_num_csdn = etree.HTML(html_csdn).xpath('//*[@id="asideProfile"]/div[2]/dl[5]/@title')[0]
 fans_num_csdn = etree.HTML(html_csdn).xpath('//*[@id="fanBox"]/@title')[0]
 rank_num_csdn = etree.HTML(html_csdn).xpath('//*[@id="asideProfile"]/div[3]/dl[4]/@title')[0]
@@ -46,7 +51,7 @@ conn.commit()
 
 print("---------CSDN 数据写入完成---------")
 
-# juejin
+# # juejin
 
 req_juejin = request.Request('https://juejin.im/user/5d1ff49c6fb9a07eb67db07b/posts')
 req_juejin.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36')

@@ -73,3 +73,9 @@ sudo python3 -m pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/sim
 
 > python2路径： /Users/xxx/Library/Python/2.7/lib/python/site-packages/
 > python3路径：/usr/local/Cellar/python/3.7.2_2/Frameworks/Python.framework/Versions/3.7/bin
+
+## 解决方案
+
+### 1. Python3 打开 https 链接,异常：“SSL: CERTIFICATE_VERIFY_FAILED”
+
+https://www.cnblogs.com/lizm166/p/10001096.html
